@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+	<name>sf_controller</name>
+	<version>1.0.0</version>
+	<description>High level controller for Sunflower functions</description>
+	<maintainer email="n.burke@natbur.com">Nathan Burke</maintainer>
+	<license>MIT</license>
+	
+	<buildtool_depend>catkin</buildtool_depend>
+	
+	<run_depend>actionlib</run_depend>
+	<run_depend>dynamixel_msgs</run_depend>
+	<run_depend>geometry_msgs</run_depend>
+	<run_depend>move_base_msgs</run_depend>
+	<run_depend>p2os_msgs</run_depend>
+	<run_depend>rospy</run_depend>
+	<run_depend>std_msgs</run_depend>
+	<run_depend>tf</run_depend>
+
+	<run_depend>sf_controller_msgs</run_depend>
+	<run_depend>sf_lights_msgs</run_depend>
+</package>

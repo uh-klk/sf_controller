@@ -1,0 +1,25 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+	<arg name="topic" default="dxl_manager" />
+	<arg name="manager_config" default="$(find sf_controller)/config/dxl_port.yaml" />
+
+	<node name="sf_dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen">
+		<rosparam file="$(arg manager_config)" command="load" ns="serial_ports/joints_port" />
+		<param name="namespace" value="$(arg topic)" />
+	</node>
+
+    <rosparam file="$(find sf_controller)/config/controllers.yaml" command="load" />
+	<!-- Without writing a custom controller_spawner, there is no good way to read the -->
+	<!-- controller lists from the yaml file. The lists need to match controllers.yaml -->
+	<!-- Load all base drivers/subscribers -->
+	<node name="controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+		args="--manager=$(arg topic) 
+			  --port=joints_port
+                head_roll_controller
+                head_pan_controller
+                neck_upper_controller
+			    neck_lower_controller
+                tray_joint_controller"
+		output="screen" />
+    
+</launch>

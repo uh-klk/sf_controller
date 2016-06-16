@@ -1,0 +1,43 @@
+head:
+  controller: head_controller
+  type: FollowJointTrajectoryAction
+  joint_names:
+  - head_roll
+  - head_pan
+  - neck_upper
+  - neck_lower
+  positions:
+    home: [ 0.0, 0.0, 0.0, 0.0 ]
+    back_right: [ 0.0, -3.0, 0.0, 0.0 ]
+    back_left: [ 0.0, 3.0, 0.0, 0.0 ]
+tray:
+  controller: tray_controller
+  type: FollowJointTrajectoryAction
+  joint_names:
+  - tray_joint
+  positions:
+    open: [ -0.8 ]
+    closed: [ 0.0 ]
+base:
+  controller: move_base
+  type: MoveBaseAction
+  max_translation: 1.5  # m
+  max_rotation: 6.28319 # 2 * pi
+  linear_rate: 0.3  # m/s
+  rotation_rate: 0.5  # rad/s
+light:
+  controller: light_controller
+  type: LightsAction
+  positions:
+    black: [ 0, 0, 0 ]
+    blue: [ 0, 0, 1 ]
+    green: [ 0, 1, 0 ]
+    teal: [ 0, 1, 1 ]
+    red: [ 1, 0, 0 ]
+    magenta: [ 1, 0, 1 ]
+    yellow: [ 1, 1, 0 ]
+    white: [ 1, 1, 1 ]
+park:
+  head: [ 0, 0, -1.67, 1.67 ]
+  tray: [ 0 ]
+  lights: [ 0, 0, 0]

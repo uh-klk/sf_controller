@@ -1,0 +1,78 @@
+tray_joint_controller:
+  controller:
+    package: dynamixel_controllers
+    module: joint_position_controller
+    type: JointPositionController
+  joint_name: tray_joint
+  joint_speed: 0.3
+  motor:
+    id: 30
+    init: 535
+    min: 330
+    max: 535
+head_roll_controller:
+  controller:
+    package: dynamixel_controllers
+    module: joint_position_controller
+    type: JointPositionController
+  joint_name: head_roll_joint
+  joint_speed: 1
+  motor:
+    id: 3
+    init: 512
+    min: 400
+    max: 600
+head_pan_controller:
+  controller:
+    package: dynamixel_controllers
+    module: joint_position_controller
+    type: JointPositionController
+  joint_name: head_pan_joint
+  joint_speed: 1.17
+  motor:
+    id: 2
+    init: 540
+    min: 215
+    max: 830
+neck_upper_controller:
+  controller:
+    package: dynamixel_controllers
+    module: joint_position_controller
+    type: JointPositionController
+  joint_name: neck_upper_joint
+  joint_speed: 1
+  motor:
+    id: 1
+    init: 512
+    min: 212
+    max: 812
+neck_lower_controller:
+  controller:
+    package: dynamixel_controllers
+    module: joint_position_controller
+    type: JointPositionController
+  joint_name: neck_lower_joint
+  joint_speed: 1
+  motor:
+    id: 0
+    init: 512
+    min: 212
+    max: 812
+head_controller:
+  controller:
+    package: dynamixel_controllers
+    module: joint_trajectory_action_controller
+    type: JointTrajectoryActionController
+  joint_trajectory_action_node:
+    min_velocity: 0.1
+    constraints:
+      goal_time: 0.25
+tray_controller:
+  controller:
+    package: dynamixel_controllers
+    module: joint_trajectory_action_controller
+    type: JointTrajectoryActionController
+  joint_trajectory_action_node:
+    min_velocity: 0.1
+    constraints:
+      goal_time: 0.25

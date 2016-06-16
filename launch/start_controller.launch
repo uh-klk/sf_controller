@@ -1,0 +1,5 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+	<include file="$(find sf_controller)/launch/start_dynamixels.launch" />
+</launch>
